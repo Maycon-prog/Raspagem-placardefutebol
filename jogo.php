@@ -18,7 +18,7 @@
    $retira = str_replace($array, "", $placarecron);
    $dividi = explode('x', $retira);
    $remove = str_replace('t">', "", $dividi[4]);
-
+   // Se o jogo estiver pendente resultado é igual a 0
    $resolvebug = explode('img-resizecenter-blocklogo',$dividi[8]);
     if($resolvebug[0]=='"class="'){
         $time2 = 0;
