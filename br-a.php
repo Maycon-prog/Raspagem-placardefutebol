@@ -1,9 +1,12 @@
 <?php 
-	$dados = file_get_contents("https://www.placardefutebol.com.br/brasileirao-serie-a");
-	$dados2 = str_replace("/brasileirao-serie-a", "http://canalfutebolnoradio.com.br/redireciona.php?url=https://www.placardefutebol.com.br/brasileirao-serie-a", $dados);
-   $dados3 = str_replace('<a', '<a target="_BLACK"', $dados2);
-	$var1 = explode('<div class="container content">', $dados3);
-	print_r($var1[1]);
+    // Recebe os dados
+    $dados = file_get_contents("https://www.placardefutebol.com.br/brasileirao-serie-a");
+    $var1 = explode('<div class="container content">', $dados);
+    // Altera o caminho dos links
+    $mudalink1 = str_replace('<a', '<a target="_BLACK"', $var1[1]);
+    $mudalink2 = str_replace("/brasileirao-serie-a", "http://localhost/jogo.php?url=https://www.placardefutebol.com.br/brasileirao-serie-a", $mudalink1);
+    // Imprime a pagina
+    print($mudalink2);
  ?>
  <style type="text/css">
  .badge-penalties{
